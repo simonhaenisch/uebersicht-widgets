@@ -1,6 +1,7 @@
 # My Übersicht Widgets
 
-![screenshot](https://simonhaenisch.com/desktop-auckland.jpg)
+![screenshot](https://simonhaenisch.com/assets/desktop-auckland.jpg)
+![screenshot](https://simonhaenisch.com/assets/desktop-sydney.jpg)
 
 Features:
 
