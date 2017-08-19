@@ -69,31 +69,31 @@ const location = JSON.parse(process.argv[2] || '{ "lat": 52.5069704, "lng": 13.2
 
 // function to geocode a search query
 async function geocode(searchQuery) {
-	const params = querystring.stringify({
-		address: searchQuery,
-	});
-
 	try {
+		const params = querystring.stringify({
+			address: searchQuery,
+		});
+
 		const geocode = await (await fetch(`https://maps.googleapis.com/maps/api/geocode/json?${params}`)).json();
+
+		// check for errors
+		if (geocode.status !== 'OK') {
+			console.error(`Error: Could not geocode the given address (${geocode.status}).`);
+			return null;
+		}
+
+		// process results
+		const city = geocode.results[0].address_components.find(comp => comp.types.includes('locality')).long_name;
+		const country = geocode.results[0].address_components.find(comp => comp.types.includes('country')).long_name;
+		const location = {
+			name: `${city}, ${country}`,
+			lat: geocode.results[0].geometry.location.lat,
+			lng: geocode.results[0].geometry.location.lng,
+		};
+
+		return location;
 	}
 	catch (err) {
 		return console.error(err);
 	}
-
-	// check for errors
-	if (geocode.status !== 'OK') {
-		console.error(`Error: Could not geocode the given address (${geocode.status}).`);
-		return null;
-	}
-
-	// process results
-	const city = geocode.results[0].address_components.find(comp => comp.types.includes('locality')).long_name;
-	const country = geocode.results[0].address_components.find(comp => comp.types.includes('country')).long_name;
-	const location = {
-		name: `${city}, ${country}`,
-		lat: geocode.results[0].geometry.location.lat,
-		lng: geocode.results[0].geometry.location.lng,
-	};
-
-	return location;
 }
