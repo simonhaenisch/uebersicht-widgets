@@ -6,7 +6,7 @@ Features:
 * **Calendar:** highlights current day.
 * **Weather:** uses the current location (needs Wifi) and the Dark Sky API.
 
-_Created for [Source Code Pro](/adobe-fonts/source-code-pro)._
+_Created for [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)._
 
 ## Installation
 
