@@ -4,7 +4,7 @@
 
 Features:
 
-* **Clock:** only repaints once per minute 💪.
+* **Clock:** only repaints once per minute 💪 (to save battery).
 * **Calendar:** highlights current day.
 * **Weather:** uses the current location (needs Wifi) and the Dark Sky API. Shows forecast for next day after 9 PM.
 
