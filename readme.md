@@ -8,7 +8,7 @@ Features:
 * **Calendar:** highlights current day.
 * **Weather:** uses the current location (needs Wifi) and the Dark Sky API. Shows forecast for next day after 9 PM.
 
-_[Satellite Eyes](https://github.com/tomtaylor/satellite-eyes) is used to get a location based wallpaper. The main font [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)._
+_[Satellite Eyes](https://github.com/tomtaylor/satellite-eyes) is used to get a location based wallpaper. The font in the screenshot is [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)._
 
 ## Installation
 
