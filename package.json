@@ -1,0 +1,28 @@
+{
+  "name": "uebersicht-widgets",
+  "version": "1.0.0",
+  "description": "my personal desktop widgets for uebersicht",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonhaenisch/uebersicht-widgets.git"
+  },
+  "keywords": [
+    "desktop",
+    "customization",
+    "uebersicht"
+  ],
+  "author": "Simon Haenisch | github.com/simonhaenisch",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/simonhaenisch/uebersicht-widgets/issues"
+  },
+  "homepage": "https://github.com/simonhaenisch/uebersicht-widgets#readme",
+  "dependencies": {
+    "moment": "^2.18.1",
+    "node-fetch": "^1.7.2"
+  }
+}
