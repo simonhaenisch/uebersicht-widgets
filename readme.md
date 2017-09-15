@@ -1,7 +1,7 @@
 # My Übersicht Widgets
 
-![screenshot](https://simonhaenisch.com/assets/desktop-auckland.jpg)
-![screenshot](https://simonhaenisch.com/assets/desktop-sydney.jpg)
+![screenshot auckland](https://camo.githubusercontent.com/b04e63d3a401ad3892a0e5135e145c7b945c46fe/68747470733a2f2f73696d6f6e6861656e697363682e636f6d2f6173736574732f6465736b746f702d6175636b6c616e642e6a7067)
+![screenshot sydnes](https://camo.githubusercontent.com/8e12d14cfaa5966c9ec8a3b905e78a529b407df1/68747470733a2f2f73696d6f6e6861656e697363682e636f6d2f6173736574732f6465736b746f702d7379646e65792e6a7067)
 
 Features:
 
