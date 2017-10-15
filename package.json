@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/simonhaenisch/uebersicht-widgets#readme",
   "dependencies": {
-    "moment": "^2.18.1",
-    "node-fetch": "^1.7.2"
+    "moment": "^2.19.1",
+    "nofetch": "^0.1.0"
   }
 }
