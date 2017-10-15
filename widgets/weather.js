@@ -16,7 +16,7 @@ afterRender: function (/*el*/) {
 },
 
 update: (res/*, el*/) => {
-	el.querySelector('pre').textContent = res;
+	el.querySelector('pre').innerHTML = res;
 },
 
 style: `
@@ -33,6 +33,6 @@ pre
 	font-family: "Source Code Pro"
 	font-size: 24px
 	font-weight: 900
-	color: #222
+	color: #fff
 	white-space: pre-wrap
 `

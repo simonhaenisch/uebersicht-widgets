@@ -23,8 +23,8 @@ pre
 	margin: 0
 	font-family: "Source Code Pro"
 	font-size: 19px
-	font-weight: 700
-	color: #222
+	font-weight: 600
+	color: #fff
 
 	u
 		font-weight: 900
