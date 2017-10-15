@@ -1,24 +1,30 @@
-const API_KEY = 'ENTER_YOUR_DARK_SKY_API_KEY_HERE';
-const UNITS = 'si'; // or 'us' for Fahrenheit
+// config
+const config = {
+	API_KEY: 'ENTER_YOUR_DARK_SKY_API_KEY_HERE',
+	UNITS: 'si', // or 'us' for Fahrenheit
+};
 
+// load packages
 const querystring = require('querystring');
-const fetch = require('node-fetch');
+const fetch = require('nofetch');
 const moment = require('moment');
 
-const location = JSON.parse(process.argv[2] || '{ "lat": 52.5069704, "lng": 13.28465, "name": "Berlin, Germany" }');
+// get location object from cli argument (JSON string), or default to Berlin
+const location = process.argv[2]
+	? JSON.parse(process.argv[2])
+	: { name: 'Berlin, Germany', lat: 52.5069704, lng: 13.28465 };
 
+// self–calling async main function
 (async function main() {
 	try {
 		// get weather info from darksky for given location
-		const weather = await (await fetch(`https://api.darksky.net/forecast/${API_KEY}/${location.lat},${location.lng}?units=${UNITS}&exclude=minutely,hourly,alerts`)).json();
+		const weather = await (await fetch(
+			`https://api.darksky.net/forecast/${config.API_KEY}/${location.lat},${location.lng}?units=${config.UNITS}&exclude=minutely,hourly,alerts`,
+		)).json();
 
 		// find data for today and tomorrow
 		let today = weather.daily.data.find(data => moment.unix(data.time).isSame(moment(), 'day'));
 		let tomorrow = weather.daily.data.find(data => moment.unix(data.time).isSame(moment().add(1, 'days'), 'day'));
-
-		// console.log(JSON.stringify(weather, null, 2));
-		// console.log(JSON.stringify(today, null, 2));
-		// console.log(JSON.stringify(tomorrow, null, 2));
 
 		const deg = weather.flags.units === 'si' ? '°C' : '°F';
 
@@ -26,48 +32,50 @@ const location = JSON.parse(process.argv[2] || '{ "lat": 52.5069704, "lng": 13.2
 			temp: Math.round(weather.currently.temperature),
 			skyText: weather.currently.summary.toLowerCase(),
 			uvi: weather.currently.uvIndex,
-		}
+		};
 
 		today = {
-			min: Math.round(today.temperatureMin),
-			max: Math.round(today.temperatureMax),
-			forcast: today.summary.toLowerCase().replace('.', ''),
+			high: Math.round(today.temperatureHigh),
+			low: Math.round(today.temperatureLow),
+			forecast: today.summary.toLowerCase().replace('.', ''),
 			uvi: today.uvIndex, // max of the day
 			uviTime: moment.unix(today.uvIndexTime).format('h A'),
-		}
+		};
 
 		tomorrow = {
-			min: Math.round(tomorrow.temperatureMin),
-			max: Math.round(tomorrow.temperatureMax),
-			forcast: tomorrow.summary.toLowerCase().replace('.', ''),
-		}
+			high: Math.round(tomorrow.temperatureHigh),
+			low: Math.round(tomorrow.temperatureLow),
+			forecast: tomorrow.summary.toLowerCase().replace('.', ''),
+		};
 
-		let res = `In ${location.name} it's ${current.temp}${deg} and ${current.skyText} right now.`;
+		let res = `In <u>${location.name}</u> it's <u>${current.temp}${deg}</u> and <u>${current.skyText}</u> right now.`;
 
 		if (moment().hours() < 21) {
-			res += ` Today it will be ${today.forcast} with a forecast high of ${today.max}${deg} and a low of ${today.min}${deg}.`;
+			res += ` Today it will be <u>${today.forecast}</u> with a forecast high of <u>${today.high}${deg}</u> and a low of <u>${today.low}${deg}.`;
+		} else {
+			// after 9 PM
+			res += ` Tomorrow it will be <u>${tomorrow.forecast}</u> with a forecast high of <u>${tomorrow.high}${deg}</u> and a low of <u>${tomorrow.low}${deg}</u>.`;
 		}
-		else { // after 9 PM
-			res += ` Tomorrow it will be ${tomorrow.forcast} with a forecast high of ${tomorrow.max}${deg} and a low of ${tomorrow.min}${deg}.`;
-		}
-
-		// res += `\nThe UV index is currently ${current.uvi} with a maximum of ${today.uvi} around ${today.uviTime}.`;
 
 		console.log(res);
-	}
-	catch (err) {
-		if (err.code === 'ENOTFOUND' || err.code === 'ETIMEDOUT') {
+	} catch (error) {
+		if (error.code === 'ENOTFOUND' || error.code === 'ETIMEDOUT') {
+			// no internet connection => try again
 			setTimeout(main, 1000);
-		}
-		else {
-			// console.error(err);
-			console.log('😭 Couldn\'t load weather. Did you set the API key?');
+		} else {
+			// console.error(error);
+			console.log("😭 Couldn't load weather. Did you set the API key?");
 		}
 	}
-
 })();
 
-// function to geocode a search query
+/**
+ * geocode a search query
+ *
+ * @param {string} searchQuery - a phrase to search for (address, POI, ...)
+ *
+ * @returns {Promise<object>} - location as object: { name, lat, lng }
+ */
 async function geocode(searchQuery) {
 	try {
 		const params = querystring.stringify({
@@ -92,8 +100,8 @@ async function geocode(searchQuery) {
 		};
 
 		return location;
-	}
-	catch (err) {
-		return console.error(err);
+	} catch (err) {
+		console.error(err);
+		return null;
 	}
 }
