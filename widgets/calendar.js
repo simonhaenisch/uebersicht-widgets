@@ -1,4 +1,4 @@
-command: `cal`,
+command: `cal -h`,
 
 refreshFrequency: '1m',
 
