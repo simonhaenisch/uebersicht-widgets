@@ -4,26 +4,13 @@ refreshFrequency: '5m',
 
 render: res => {
 	const highlights = [
-		{
-			name: 'project',
-			regex: /^\S+$/gm,
-		},
-		{
-			name: 'modified',
-			regex: /^\t M.+$/gm,
-		},
-		{
-			name: 'staged',
-			regex: /^\tA .+$/gm,
-		},
-		{
-			name: 'staged-modified',
-			regex: /^\tAM.+$/gm,
-		},
-		{
-			name: 'untracked',
-			regex: /^\t\?\?.+$/gm,
-		},
+		{ name: 'project',         regex: /^\S+$/gm },
+		{ name: 'modified',        regex: /^\t M.+$/gm },
+		{ name: 'added',           regex: /^\tA .+$/gm },
+		{ name: 'staged',          regex: /^\tM .+$/gm },
+		{ name: 'added-modified',  regex: /^\tAM.+$/gm },
+		{ name: 'staged-modified', regex: /^\tMM.+$/gm },
+		{ name: 'untracked',       regex: /^\t\?\?.+$/gm },
 	];
 	for (const highlight of highlights) {
 		for (const match of res.match(highlight.regex) || []) {
@@ -52,14 +39,17 @@ span.project
 	text-decoration: underline
 
 span.modified
-	color: gold
+	color: darkgray
 
-span.staged
+span.added
 	color: yellowgreen
 
-span.staged-modified
+span.staged
+	color: gold
+
+span.added-modified, span.staged-modified
 	color: orange
 
 span.untracked
-	color: darkgray
+	color: crimson
 `
