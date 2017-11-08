@@ -1,6 +1,6 @@
 command: `../list-dirty-repos.sh ~`,
 
-refreshFrequency: '5m',
+refreshFrequency: '1m',
 
 render: res => {
 	const highlights = [
@@ -34,22 +34,22 @@ pre
 	color: #fff
 	tab-size: 2
 
-span.project
+.project
 	font-weight: 900
 	text-decoration: underline
 
-span.modified
+.modified
 	color: darkgray
 
-span.added
+.added
 	color: yellowgreen
 
-span.staged
+.staged
 	color: gold
 
-span.added-modified, span.staged-modified
+.added-modified, .staged-modified
 	color: orange
 
-span.untracked
+.untracked
 	color: crimson
 `
