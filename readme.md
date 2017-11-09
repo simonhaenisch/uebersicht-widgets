@@ -1,13 +1,14 @@
 # My Übersicht Widgets
 
-![screenshot auckland](screenshots/akl.jpg)
-![screenshot sydney](screenshots/sydney.jpg)
+![screenshot auckland](screenshots/dark.jpg)
+![screenshot sydney](screenshots/map.jpg)
 
 ## Features
 
 * 🕐 **Clock:** smartly only repaints once per minute (to save battery 💪🔋).
 * 📆 **Calendar:** highlights current day.
 * 🌤️ **Weather:** uses the current location (needs Wifi) and the Dark Sky API to get a weather forecast. After 9 PM it shows the forecast for next day.
+* 👨🏻‍💻 **Dirty Git Repos:** shows a list of all git repositories that have uncommitted file changes.
 
 _The font in the screenshots is [Source Code Pro](https://github.com/adobe-fonts/source-code-pro). On the second screenshot, [Satellite Eyes](https://github.com/tomtaylor/satellite-eyes) is used to get a location based wallpaper._
 
