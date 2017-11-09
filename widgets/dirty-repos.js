@@ -10,6 +10,8 @@ render: res => {
 		{ name: 'staged',          regex: /^\tM .+$/gm },
 		{ name: 'added-modified',  regex: /^\tAM.+$/gm },
 		{ name: 'staged-modified', regex: /^\tMM.+$/gm },
+		{ name: 'renamed',         regex: /^\tR .+$/gm },
+		{ name: 'deleted',         regex: /^\t D.+$/gm },
 		{ name: 'untracked',       regex: /^\t\?\?.+$/gm },
 	];
 	for (const highlight of highlights) {
@@ -48,7 +50,13 @@ pre
 	color: gold
 
 .added-modified, .staged-modified
-	color: orange
+	color: tomato
+
+.renamed
+	color: dodgerblue
+
+.deleted
+	color: deeppink
 
 .untracked
 	color: crimson
