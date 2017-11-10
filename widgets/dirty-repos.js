@@ -14,10 +14,9 @@ render: res => {
 		{ name: 'deleted',         regex: /^\t D.+$/gm },
 		{ name: 'untracked',       regex: /^\t\?\?.+$/gm },
 	];
+	const matches = [];
 	for (const highlight of highlights) {
-		for (const match of res.match(highlight.regex) || []) {
-			res = res.replace(match, `<span class="${highlight.name}">${match}</span>`);
-		}
+		res = res.replace(highlight.regex, `<span class="${highlight.name}">$&</span>`)
 	}
 	return `<pre>${res}</pre>`;
 },
