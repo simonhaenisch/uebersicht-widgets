@@ -1,6 +1,6 @@
 # My Übersicht Widgets
 
-![screenshot auckland](screenshots/dark.jpg)
+![screenshot auckland](screenshots/dark.png)
 ![screenshot sydney](screenshots/map.jpg)
 
 ## Features
