@@ -24,7 +24,7 @@ render: res => {
 style: `
 -webkit-font-smoothing: antialiased
 
-top: 20px
+top: 12px
 left: 20px
 
 pre
