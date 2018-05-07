@@ -27,6 +27,5 @@ async function main({ argv }) {
 main(process)
 	.then(process.exit)
 	.catch(err => {
-		console.error(err);
 		process.exit(1);
 	});
