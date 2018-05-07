@@ -5,7 +5,7 @@ const server = 'https://api.github.com';
 const endpoint = '/notifications';
 const auth = {
 	user: 'simonhaenisch',
-	pass: '2aa1f381c54d344380dff397a3a0503f9bc70a7e', // api key
+	pass: 'YOUR_GITHUB_API_KEY_HERE', // get from Settings > Developer Settings > Personal Access Tokens
 };
 
 async function main({ argv }) {
