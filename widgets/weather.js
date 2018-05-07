@@ -1,4 +1,4 @@
-command: `echo Loading weather forecast...`,
+command: 'echo Loading weather forecast...',
 
 refreshFrequency: '5m', // 288 requests per day
 
@@ -10,7 +10,7 @@ afterRender: function (/*el*/) {
 		const lng = res.position.coords.longitude;
 		const name = `${res.address.city}, ${res.address.country}`;
 
-		this.command = `/usr/local/bin/node ../get-weather.js '{ "lat": ${lat}, "lng": ${lng}, "name": "${name}" }'`;
+		this.command = `/usr/local/bin/node ../get-weather '{ "lat": ${lat}, "lng": ${lng}, "name": "${name}" }'`;
 		this.refresh();
 	}, err => console.error(err));
 },
