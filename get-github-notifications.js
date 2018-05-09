@@ -1,11 +1,11 @@
-const anybar = require('anybar');
 const request = require('request-promise-native');
+const anybar = require('anybar');
 
 const server = 'https://api.github.com';
 const endpoint = '/notifications';
 const auth = {
 	user: 'simonhaenisch',
-	pass: 'YOUR_GITHUB_API_KEY_HERE', // get from Settings > Developer Settings > Personal Access Tokens
+	pass: require('./secrets').github, // (github.com > Settings > Developer Settings > Personal Access Tokens)
 };
 
 async function main({ argv }) {
