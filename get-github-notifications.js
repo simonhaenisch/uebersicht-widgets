@@ -1,4 +1,5 @@
 const request = require('request-promise-native');
+const octicons = require('octicons');
 const anybar = require('anybar');
 
 const server = 'https://api.github.com';
@@ -17,9 +18,20 @@ async function main({ argv }) {
 		auth,
 	};
 
-	const res = await request(`${server}${endpoint}`, requestOptions);
+	const notifications = await request(`${server}${endpoint}`, requestOptions);
 
-	await anybar(res.length > 0 ? 'orange' : 'black');
+	const out = notifications
+		.map(notification => ({
+			repo: notification.repository.full_name,
+			subject: notification.subject.title,
+			icon: notification.subject.type === 'PullRequest' ? 'git-pull-request' : 'issue-opened',
+		}))
+		.map(n => `${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre>`)
+		.join('\n');
+
+	console.log(out);
+
+	await anybar(notifications.length > 0 ? 'white' : 'black');
 
 	return 0;
 }
