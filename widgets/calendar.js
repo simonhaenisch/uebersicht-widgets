@@ -3,12 +3,13 @@ command: `cal -h`,
 refreshFrequency: '1m',
 
 render: res => {
+	// make heading strong
+	res = res.replace(/(.*)\n/, '<strong>$1</strong>\n');
 	// underline current day
-	const today = new Date().getDate()
-	const m = res.match(new RegExp(`\\s${today}\\s`))[0]
-	const formattedRes = res.replace(m, m.replace(today, `<u>${today}</u>`))
+	const today = new Date().getDate();
+	res = res.replace(new RegExp(`(\\s)(${today})(\\s)`), '$1<u>$2</u>$3');
 
-	return `<pre>${formattedRes}</pre>`
+	return `<pre>${res}</pre>`;
 },
 
 style: `
@@ -24,8 +25,10 @@ pre
 	font-family: "Source Code Pro"
 	font-size: 19px
 	font-weight: 600
-	color: #fff
+	color: darkgray
 
+	strong
 	u
+		color: whitesmoke
 		font-weight: 900
 `

@@ -32,7 +32,7 @@ pre
 	font-family: "Source Code Pro"
 	font-size: 12px
 	font-weight: 600
-	color: #fff
+	color: whitesmoke
 	tab-size: 2
 
 .project
@@ -43,20 +43,20 @@ pre
 	color: darkgray
 
 .added
-	color: yellowgreen
+	color: mediumseagreen
 
 .staged
 	color: gold
 
 .added-modified, .staged-modified
-	color: tomato
+	color: mediumturquoise
 
 .renamed
-	color: dodgerblue
+	color: steelblue
 
 .deleted
-	color: deeppink
+	color: mediumvioletred
 
 .untracked
-	color: crimson
+	color: tomato
 `

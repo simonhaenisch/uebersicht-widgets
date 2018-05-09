@@ -33,6 +33,6 @@ pre
 	font-family: "Source Code Pro"
 	font-size: 24px
 	font-weight: 900
-	color: #fff
+	color: whitesmoke
 	white-space: pre-wrap
 `

@@ -15,7 +15,7 @@ grid-template-columns: auto 1fr
 grid-gap: 0.25em 0.5em
 
 svg
-	fill: white
+	fill: whitesmoke
 
 pre
 	margin: 0
@@ -26,5 +26,5 @@ pre
 	tab-size: 2
 
 	span
-		color: white
+		color: whitesmoke
 `

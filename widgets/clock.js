@@ -42,6 +42,6 @@ pre
 	font-family: "Source Code Pro"
 	font-size: 283px
 	font-weight: 900
-	color: #fff
+	color: whitesmoke
 	line-height: 0.62
 `
