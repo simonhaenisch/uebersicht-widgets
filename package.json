@@ -24,7 +24,7 @@
 	"dependencies": {
 		"anybar": "3.0.0",
 		"moment": "2.22.1",
-		"octicons": "7.2.0",
+		"octicons": "7.3.0",
 		"request": "2.85.0",
 		"request-promise-native": "1.0.5"
 	}
