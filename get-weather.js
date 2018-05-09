@@ -5,7 +5,7 @@ const moment = require('moment');
 // config
 const server = 'https://api.darksky.net';
 const endpoint = '/forecast';
-const apikey = 'e46934fc1b90407281e61f2dd5cdb98c';
+const apikey = require('./secrets').darksky;
 const units = 'si'; // or 'us' for Fahrenheit
 
 const jsonRequest = async (uri, options) => await request(uri, { json: true, ...options });
