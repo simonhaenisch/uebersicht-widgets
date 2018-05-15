@@ -49,14 +49,14 @@ pre
 	color: gold
 
 .added-modified, .staged-modified
-	color: mediumturquoise
+	color: mediumvioletred
 
 .renamed
 	color: steelblue
 
 .deleted
-	color: mediumvioletred
+	color: tomato
 
 .untracked
-	color: tomato
+	color: mediumseagreen
 `
