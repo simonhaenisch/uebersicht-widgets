@@ -10,21 +10,22 @@ style: `
 bottom: 12px
 left: 20px
 
-display: grid
-grid-template-columns: auto 1fr
-grid-gap: 0.25em 0.5em
+a
+	display: grid
+	grid-template-columns: auto 1fr
+	grid-gap: 0.25em 0.5em
 
-svg
-	fill: whitesmoke
+	svg
+		fill: whitesmoke
 
-pre
-	margin: 0
-	font-family: "Source Code Pro"
-	font-size: 12px
-	font-weight: 600
-	color: darkgray
-	tab-size: 2
+	pre
+		margin: 0
+		font-family: "Source Code Pro"
+		font-size: 12px
+		font-weight: 600
+		color: darkgray
+		tab-size: 2
 
-	span
-		color: whitesmoke
-`
+		span
+			color: whitesmoke
+	`

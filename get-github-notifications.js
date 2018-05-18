@@ -6,14 +6,12 @@ const server = 'https://api.github.com';
 const endpoint = '/notifications';
 const auth = {
 	user: 'simonhaenisch',
-	pass: require('./secrets').github, // (github.com > Settings > Developer Settings > Personal Access Tokens)
+	pass: require('./secrets').github,
 };
 
 async function main({ argv }) {
 	const requestOptions = {
-		headers: {
-			'User-Agent': auth.user, // see http://developer.github.com/v3/#user-agent-required
-		},
+		headers: { 'User-Agent': auth.user }, // see http://developer.github.com/v3/#user-agent-required
 		json: true,
 		auth,
 	};
@@ -24,9 +22,10 @@ async function main({ argv }) {
 		.map(notification => ({
 			repo: notification.repository.full_name,
 			subject: notification.subject.title,
+			url: notification.subject.url.replace('api.', '').replace('repos/', ''),
 			icon: notification.subject.type === 'PullRequest' ? 'git-pull-request' : 'issue-opened',
 		}))
-		.map(n => `${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre>`)
+		.map(n => `<a href="${n.url}">${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre></a>`)
 		.join('\n');
 
 	console.log(out);
