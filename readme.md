@@ -8,7 +8,7 @@
 * 📆 **Calendar:** highlights current day.
 * 🌤️ **Weather:** uses the current location (needs Wifi) and the Dark Sky API to get a weather forecast. After 9 PM it shows the forecast for next day.
 * 👨🏻‍💻 **Dirty Git Repos:** shows a list of all git repositories that have uncommitted file changes.
-* 🛎 **Github Notifications:** shows a list of unseen Github notifications.
+* 🛎 **Github Notifications:** shows a list of unseen Github notifications (and also notifies [AnyBar](/tonsky/AnyBar)).
 
 _I use the font [Source Code Pro](/adobe-fonts/source-code-pro)._
 
