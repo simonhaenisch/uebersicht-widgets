@@ -14,6 +14,7 @@ a
 	display: grid
 	grid-template-columns: auto 1fr
 	grid-gap: 0.25em 0.5em
+	text-decoration: none
 
 	svg
 		fill: whitesmoke
