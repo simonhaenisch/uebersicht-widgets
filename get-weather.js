@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request-promise-native');
 const querystring = require('querystring');
 const moment = require('moment');

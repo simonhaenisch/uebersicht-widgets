@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request-promise-native');
 const octicons = require('octicons');
 const anybar = require('anybar');
