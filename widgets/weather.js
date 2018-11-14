@@ -15,7 +15,7 @@ afterRender: function (/*el*/) {
 	}, err => console.error(err));
 },
 
-update: (res/*, el*/) => {
+update: (res, el) => {
 	el.querySelector('pre').innerHTML = res;
 },
 
