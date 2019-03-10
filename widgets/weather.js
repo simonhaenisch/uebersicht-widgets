@@ -26,7 +26,7 @@ top: 50%
 margin-top: 124px
 left: 50%
 margin-left: -554px
-width: 66%
+width: 1108px
 
 pre
 	margin: 0
