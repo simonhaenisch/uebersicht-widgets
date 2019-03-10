@@ -39,7 +39,7 @@ export const className = css`
 	-webkit-font-smoothing: antialiased;
 
 	top: 50%;
-	margin-top: -110px;
+	margin-top: -162px;
 	left: 50%;
 	margin-left: -570px;
 
@@ -49,6 +49,6 @@ export const className = css`
 		font-size: 283px;
 		font-weight: 900;
 		color: whitesmoke;
-		line-height: 0.62;
+		line-height: 1;
 	}
 `;
