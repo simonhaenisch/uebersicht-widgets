@@ -22,10 +22,10 @@
 		"useTabs": true
 	},
 	"dependencies": {
-		"anybar": "3.0.0",
+		"anybar": "4.0.0",
 		"moment": "2.24.0",
-		"octicons": "8.4.1",
+		"octicons": "8.5.0",
 		"request": "2.88.0",
-		"request-promise-native": "1.0.5"
+		"request-promise-native": "1.0.7"
 	}
 }
