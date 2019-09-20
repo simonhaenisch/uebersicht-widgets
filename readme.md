@@ -1,4 +1,4 @@
-# [Übersicht](/felixhageloh/uebersicht) Widgets
+# [Übersicht](https://github.com/felixhageloh/uebersicht) Widgets
 
 ![screenshot of my widgets](https://file-qfcxmtfpxd.now.sh)
 
