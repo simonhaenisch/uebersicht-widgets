@@ -4,7 +4,7 @@ export const command = `../list-dirty-repos.sh ~`;
 
 export const refreshFrequency = 60 * 1000;
 
-export const render = ({ output, error }) => {
+export const render = ({ output = '', error }) => {
 	const highlights = [
 		{ name: 'project', regex: /^\S+$/gm },
 		{ name: 'modified', regex: /^\t M.+$/gm },
