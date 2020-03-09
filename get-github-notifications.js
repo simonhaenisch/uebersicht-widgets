@@ -24,10 +24,13 @@ async function main({ argv }) {
 	const notifications = await request(`${server}${endpoint}`, requestOptions);
 
 	const out = notifications
+		.filter(n => n.unread)
 		.map(notification => ({
 			repo: notification.repository.full_name,
 			subject: notification.subject.title,
-			url: notification.subject.url.replace('api.', '').replace('repos/', ''),
+			url: notification.subject.url
+				? notification.subject.url.replace('https://api.', 'https://').replace('/repos', '')
+				: `https://github.com/${notification.repository.full_name}`,
 			icon: notification.subject.type === 'PullRequest' ? 'git-pull-request' : 'issue-opened',
 		}))
 		.map(n => `<a href="${n.url}">${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre></a>`)
