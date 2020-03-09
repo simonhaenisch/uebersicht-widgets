@@ -1,13 +1,16 @@
 #!/usr/bin/env node
 
+const { join } = require('path');
 const request = require('request-promise-native');
 const querystring = require('querystring');
 const moment = require('moment');
 
+require('dotenv').config({ path: join(__dirname, '.env') });
+
 // config
 const server = 'https://api.darksky.net';
 const endpoint = '/forecast';
-const apikey = require('./secrets').darksky;
+const apikey = process.env.DARKSKY_KEY;
 const units = 'si'; // or 'us' for Fahrenheit
 
 const jsonRequest = async (uri, options) => await request(uri, { json: true, ...options });
@@ -50,14 +53,10 @@ async function main({ argv }) {
 	let res = `In <u>${location.name}</u> it's <u>${current.temp}${deg}</u> and <u>${current.skyText}</u> right now.`;
 
 	if (moment().hours() < 21) {
-		res += ` Today it will be <u>${today.forecast}</u> with a forecast high of <u>${
-			today.high
-		}${deg}</u> and a low of <u>${today.low}${deg}.`;
+		res += ` Today it will be <u>${today.forecast}</u> with a forecast high of <u>${today.high}${deg}</u> and a low of <u>${today.low}${deg}.`;
 	} else {
 		// after 9 PM
-		res += ` Tomorrow it will be <u>${tomorrow.forecast}</u> with a forecast high of <u>${
-			tomorrow.high
-		}${deg}</u> and a low of <u>${tomorrow.low}${deg}</u>.`;
+		res += ` Tomorrow it will be <u>${tomorrow.forecast}</u> with a forecast high of <u>${tomorrow.high}${deg}</u> and a low of <u>${tomorrow.low}${deg}</u>.`;
 	}
 
 	console.log(res);

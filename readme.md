@@ -15,7 +15,7 @@ _I use the font [Source Code Pro](/adobe-fonts/source-code-pro)._
 ## Installation
 
 1. Clone this repository.
-2. Add your API keys to `secrets.js` (get the keys here: [Github](https://github.com/settings/tokens), [Dark Sky](https://darksky.net/dev)).
+2. Add your API keys to `.env` (get the keys here: [Github](https://github.com/settings/tokens), [Dark Sky](https://darksky.net/dev)).
 3. Open the Übersicht preferences and change the widgets folder to the one called `widgets` in this repository.
 
 _**optionally:**_

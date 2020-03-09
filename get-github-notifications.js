@@ -1,14 +1,17 @@
 #!/usr/bin/env node
 
+const { join } = require('path');
 const request = require('request-promise-native');
 const octicons = require('octicons');
 const anybar = require('anybar');
 
+require('dotenv').config({ path: join(__dirname, '.env') });
+
 const server = 'https://api.github.com';
 const endpoint = '/notifications';
 const auth = {
-	user: 'simonhaenisch',
-	pass: require('./secrets').github,
+	user: process.env.GITHUB_USER,
+	pass: process.env.GITHUB_TOKEN,
 };
 
 async function main({ argv }) {
