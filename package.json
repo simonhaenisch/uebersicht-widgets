@@ -24,9 +24,9 @@
 	"dependencies": {
 		"anybar": "4.0.0",
 		"dotenv": "8.2.0",
-		"moment": "2.27.0",
+		"moment": "2.29.1",
 		"octicons": "8.5.0",
 		"request": "2.88.2",
-		"request-promise-native": "1.0.8"
+		"request-promise-native": "1.0.9"
 	}
 }
