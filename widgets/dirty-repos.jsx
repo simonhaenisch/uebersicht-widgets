@@ -1,6 +1,6 @@
 import { css } from 'uebersicht';
 
-export const command = `../list-dirty-repos.sh ~`;
+export const command = `../list-dirty-repos.sh ~/.dotfiles ~/Projects ~/Work`;
 
 export const refreshFrequency = 60 * 1000;
 

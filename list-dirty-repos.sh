@@ -2,7 +2,7 @@
 
 for folder in $@
 do
-	find $folder -name .git -type d -maxdepth 3 | while IFS= read -r repo
+	find $folder -name .git -type d -maxdepth 2 | while IFS= read -r repo
 	do
 		repo="${repo/\/.git/}"
 
