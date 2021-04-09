@@ -8,13 +8,13 @@ export const render = ({ output, error }) => (
 
 export const initialState = { output: 'Loading weather forecast...' };
 
-export const init = dispatch => {
-	geolocation.getCurrentPosition(res => {
+export const init = (dispatch) => {
+	geolocation.getCurrentPosition((res) => {
 		const lat = res.position.coords.latitude;
 		const lng = res.position.coords.longitude;
 		const name = `${res.address.city}, ${res.address.country}`;
 
-		run(`/usr/local/bin/node ../get-weather '{ "lat": ${lat}, "lng": ${lng}, "name": "${name}" }'`).then(output =>
+		run(`/usr/local/bin/node ../get-weather '{ "lat": ${lat}, "lng": ${lng}, "name": "${name}" }'`).then((output) =>
 			dispatch({ output }),
 		);
 	}, console.error);

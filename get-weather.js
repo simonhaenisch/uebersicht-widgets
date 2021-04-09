@@ -25,8 +25,8 @@ async function main({ argv }) {
 	);
 
 	// find data for today and tomorrow
-	let today = weather.daily.data.find(data => moment.unix(data.time).isSame(moment(), 'day'));
-	let tomorrow = weather.daily.data.find(data => moment.unix(data.time).isSame(moment().add(1, 'days'), 'day'));
+	let today = weather.daily.data.find((data) => moment.unix(data.time).isSame(moment(), 'day'));
+	let tomorrow = weather.daily.data.find((data) => moment.unix(data.time).isSame(moment().add(1, 'days'), 'day'));
 
 	const deg = weather.flags.units === 'si' ? '°C' : '°F';
 
@@ -66,7 +66,7 @@ async function main({ argv }) {
 
 main(process)
 	.then(process.exit)
-	.catch(err => {
+	.catch((err) => {
 		if (err.code === 'ENOTFOUND' || err.code === 'ETIMEDOUT') {
 			// no internet connection => try again
 			setTimeout(() => main(process), 5000);
@@ -97,8 +97,8 @@ async function geocode(searchQuery) {
 	}
 
 	// process results
-	const city = geoCode.results[0].address_components.find(comp => comp.types.includes('locality')).long_name;
-	const country = geoCode.results[0].address_components.find(comp => comp.types.includes('country')).long_name;
+	const city = geoCode.results[0].address_components.find((comp) => comp.types.includes('locality')).long_name;
+	const country = geoCode.results[0].address_components.find((comp) => comp.types.includes('country')).long_name;
 
 	const location = {
 		name: `${city}, ${country}`,

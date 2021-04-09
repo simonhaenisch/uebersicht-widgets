@@ -2,7 +2,7 @@ import { css } from 'uebersicht';
 
 export const render = ({ output, error }) => <pre>{error || output}</pre>;
 
-export const init = dispatch => {
+export const init = (dispatch) => {
 	renderClock();
 
 	// calculate time till next minute
@@ -22,14 +22,8 @@ export const init = dispatch => {
 	function renderClock() {
 		const now = new Date();
 
-		const hh = now
-			.getHours()
-			.toString()
-			.padStart(2, '0');
-		const mm = now
-			.getMinutes()
-			.toString()
-			.padStart(2, '0');
+		const hh = now.getHours().toString().padStart(2, '0');
+		const mm = now.getMinutes().toString().padStart(2, '0');
 
 		dispatch({ output: `${hh}:${mm}` });
 	}

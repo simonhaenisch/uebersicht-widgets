@@ -24,8 +24,8 @@ async function main({ argv }) {
 	const notifications = await request(`${server}${endpoint}`, requestOptions);
 
 	const out = notifications
-		.filter(n => n.unread)
-		.map(notification => ({
+		.filter((n) => n.unread)
+		.map((notification) => ({
 			repo: notification.repository.full_name,
 			subject: notification.subject.title,
 			url: notification.subject.url
@@ -33,7 +33,7 @@ async function main({ argv }) {
 				: `https://github.com/${notification.repository.full_name}`,
 			icon: notification.subject.type === 'PullRequest' ? 'git-pull-request' : 'issue-opened',
 		}))
-		.map(n => `<a href="${n.url}">${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre></a>`)
+		.map((n) => `<a href="${n.url}">${octicons[n.icon].toSVG()}<pre><span>${n.repo}</span>: ${n.subject}</pre></a>`)
 		.join('\n');
 
 	console.log(out);
@@ -45,6 +45,6 @@ async function main({ argv }) {
 
 main(process)
 	.then(process.exit)
-	.catch(err => {
+	.catch((err) => {
 		process.exit(1);
 	});

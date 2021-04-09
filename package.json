@@ -1,32 +1,42 @@
 {
-	"name": "uebersicht-widgets",
-	"version": "1.0.0",
-	"description": "my personal desktop widgets for uebersicht",
-	"main": "",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": "simonhaenisch/uebersicht-widgets",
-	"keywords": [
-		"desktop",
-		"customization",
-		"uebersicht"
-	],
-	"author": "Simon Haenisch | github.com/simonhaenisch",
-	"license": "UNLICENSED",
-	"homepage": "https://github.com/simonhaenisch/uebersicht-widgets#readme",
-	"prettier": {
-		"printWidth": 120,
-		"singleQuote": true,
-		"trailingComma": "all",
-		"useTabs": true
-	},
-	"dependencies": {
-		"anybar": "4.0.0",
-		"dotenv": "8.2.0",
-		"moment": "2.29.1",
-		"octicons": "8.5.0",
-		"request": "2.88.2",
-		"request-promise-native": "1.0.9"
-	}
+  "name": "uebersicht-widgets",
+  "version": "1.0.0",
+  "description": "my personal desktop widgets for uebersicht",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "simonhaenisch/uebersicht-widgets",
+  "keywords": [
+    "desktop",
+    "customization",
+    "uebersicht"
+  ],
+  "author": "Simon Haenisch | github.com/simonhaenisch",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/simonhaenisch/uebersicht-widgets#readme",
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": true,
+    "overrides": [
+      {
+        "files": [
+          "package.json"
+        ],
+        "options": {
+          "useTabs": false
+        }
+      }
+    ]
+  },
+  "dependencies": {
+    "anybar": "4.0.0",
+    "dotenv": "8.2.0",
+    "moment": "2.29.1",
+    "octicons": "8.5.0",
+    "request": "2.88.2",
+    "request-promise-native": "1.0.9"
+  }
 }
