@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-const { join } = require('path');
-const request = require('request-promise-native');
-const querystring = require('querystring');
-const moment = require('moment');
+// @ts-check
 
-require('dotenv').config({ path: join(__dirname, '.env') });
+import { config } from 'dotenv';
+import moment from 'moment';
+import fetch from 'node-fetch';
+import querystring from 'querystring';
+
+config({ path: new URL('.env', import.meta.url).pathname });
 
 // config
 const server = 'https://api.darksky.net';
@@ -13,16 +15,17 @@ const endpoint = '/forecast';
 const apikey = process.env.DARKSKY_KEY;
 const units = 'si'; // or 'us' for Fahrenheit
 
-const jsonRequest = async (uri, options) => await request(uri, { json: true, ...options });
-
 async function main({ argv }) {
 	// get location object from cli argument (JSON string), or default to Berlin
 	const location = argv[2] ? JSON.parse(argv[2]) : { name: 'Berlin, Germany', lat: 52.5069704, lng: 13.28465 };
 
+	const url = new URL(`${endpoint}/${apikey}/${location.lat},${location.lng}`, server);
+
+	url.searchParams.append('units', units);
+	url.searchParams.append('exclude', 'minutely,hourly,alerts');
+
 	// get weather info from darksky for given location
-	const weather = await jsonRequest(
-		`${server}${endpoint}/${apikey}/${location.lat},${location.lng}?units=${units}&exclude=minutely,hourly,alerts`,
-	);
+	const weather = await fetch(url).then((res) => res.json());
 
 	// find data for today and tomorrow
 	let today = weather.daily.data.find((data) => moment.unix(data.time).isSame(moment(), 'day'));
@@ -88,7 +91,11 @@ async function geocode(searchQuery) {
 		address: searchQuery,
 	});
 
-	const geoCode = await jsonRequest(`https://maps.googleapis.com/maps/api/geocode/json?${params}`);
+	const url = new URL('https://maps.googleapis.com/maps/api/geocode/json');
+
+	url.searchParams.append('address', searchQuery);
+
+	const geoCode = await fetch(url).then((res) => res.json());
 
 	// check for errors
 	if (geoCode.status !== 'OK') {

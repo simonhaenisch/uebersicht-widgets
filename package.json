@@ -2,7 +2,7 @@
   "name": "uebersicht-widgets",
   "version": "1.0.0",
   "description": "my personal desktop widgets for uebersicht",
-  "main": "",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,19 @@
   "author": "Simon Haenisch | github.com/simonhaenisch",
   "license": "UNLICENSED",
   "homepage": "https://github.com/simonhaenisch/uebersicht-widgets#readme",
+  "dependencies": {
+    "@octokit/types": "6.17.4",
+    "@primer/octicons": "14.2.2",
+    "anybar": "5.0.0",
+    "dotenv": "10.0.0",
+    "moment": "2.29.1",
+    "node-fetch": "2.6.1"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2",
+    "prettier-plugin-organize-imports": "2.2.0",
+    "typescript": "4.3.5"
+  },
   "prettier": {
     "printWidth": 120,
     "singleQuote": true,
@@ -30,13 +43,5 @@
         }
       }
     ]
-  },
-  "dependencies": {
-    "anybar": "4.0.0",
-    "dotenv": "8.2.0",
-    "moment": "2.29.1",
-    "octicons": "8.5.0",
-    "request": "2.88.2",
-    "request-promise-native": "1.0.9"
   }
 }

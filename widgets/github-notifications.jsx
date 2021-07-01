@@ -17,6 +17,7 @@ export const className = css`
 		grid-template-columns: auto 1fr;
 		grid-gap: 0.25em 0.5em;
 		text-decoration: none;
+		padding-bottom: 0.25em;
 
 		svg {
 			fill: whitesmoke;
