@@ -25,7 +25,7 @@ export const className = css`
 
 		pre {
 			margin: 0;
-			font-family: 'Source Code Pro';
+			font-family: 'ui-monospace';
 			font-size: 12px;
 			font-weight: 600;
 			color: darkgray;

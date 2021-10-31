@@ -30,7 +30,7 @@ export const className = css`
 
 const preStyles = css`
 	margin: 0;
-	font-family: 'Source Code Pro';
+	font-family: 'ui-monospace';
 	font-size: 19px;
 	font-weight: 600;
 	color: darkgray;

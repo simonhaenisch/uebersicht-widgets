@@ -39,7 +39,7 @@ export const className = css`
 
 	pre {
 		margin: 0;
-		font-family: 'Source Code Pro';
+		font-family: 'ui-monospace';
 		font-size: 283px;
 		font-weight: 900;
 		color: whitesmoke;
