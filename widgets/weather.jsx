@@ -14,9 +14,9 @@ export const init = (dispatch) => {
 		const lng = res.position.coords.longitude;
 		const name = `${res.address.city}, ${res.address.country}`;
 
-		run(`/usr/local/bin/node ../get-weather '{ "lat": ${lat}, "lng": ${lng}, "name": "${name}" }'`).then((output) =>
-			dispatch({ output }),
-		);
+		run(
+			`PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" ../get-weather.js '${JSON.stringify({ lat, lng, name })}'`,
+		).then((output) => dispatch({ output }));
 	}, console.error);
 };
 

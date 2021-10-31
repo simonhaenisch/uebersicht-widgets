@@ -1,6 +1,6 @@
 import { css } from 'uebersicht';
 
-export const command = `/usr/local/bin/node ../get-github-notifications`;
+export const command = `PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH" ../get-github-notifications.js`;
 
 export const refreshFrequency = 60 * 1000;
 
