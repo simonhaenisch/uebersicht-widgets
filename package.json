@@ -20,7 +20,6 @@
     "@primer/octicons": "14.2.2",
     "anybar": "5.0.0",
     "dotenv": "10.0.0",
-    "moment": "2.29.1",
     "node-fetch": "2.6.1"
   },
   "devDependencies": {
